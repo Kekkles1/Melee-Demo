@@ -6,12 +6,13 @@ public class PlayerController : MonoBehaviour
 {
 
     public float RunSpeed;
-    public float JumpSpeed;
+    public float JumpMag;
+    private float gravity=-9.81f;
 
     private SpriteRenderer spriteRenderer;
     private CharacterController characterController;
     private Animator animator;
-    private Vector3 move;
+    private Vector3 playerVelocity;         //for jumping
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,8 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        move = new Vector3(x, y, 0);
+        Vector3 move = new Vector3(x, y, 0);
+
         if (move.x < 0)
         {
             spriteRenderer.flipX = true;
@@ -36,7 +38,6 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("speed", Mathf.Abs(x));
         //set animator for jump here
-
         characterController.Move(move * Time.fixedDeltaTime * RunSpeed);
     }
   
