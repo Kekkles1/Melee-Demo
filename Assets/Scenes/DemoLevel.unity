@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 555176026}
   - component: {fileID: 555176029}
   - component: {fileID: 555176028}
-  - component: {fileID: 555176027}
+  - component: {fileID: 555176030}
   m_Layer: 0
   m_Name: Hero_0
   m_TagString: Untagged
@@ -744,20 +744,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &555176027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555176023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e072d0425b2464f85d6b879b518c45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 400
-  JumpMag: 1000
 --- !u!61 &555176028
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -830,6 +816,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &555176030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555176023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5239263c76843b469e18db504c96bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 5
+  JumpMag: 5
 --- !u!1 &632677612
 GameObject:
   m_ObjectHideFlags: 0

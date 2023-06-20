@@ -6,10 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public float MoveSpeed;
     public float JumpMag;
+    public bool isGrounded;
 
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    
+    public LayerMask layerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     { 
 
         animator.SetFloat("speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+
     }
 
     private void FixedUpdate()
@@ -34,19 +38,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else spriteRenderer.flipX = false;
 
-        rb.velocity = transform.right * Input.GetAxisRaw("Horizontal") * MoveSpeed * Time.fixedDeltaTime;
-        rb.AddForce(rb.velocity, ForceMode2D.Force);
+        // rb.velocity = transform.right * Input.GetAxisRaw("Horizontal") * MoveSpeed * Time.fixedDeltaTime;
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * MoveSpeed, rb.velocity.y)*Time.fixedDeltaTime;
 
+
+
+        //rb.AddForce(rb.velocity, ForceMode2D.Force);
+
+        //Vector2 move = transform.right * Input.GetAxisRaw("Horizontal") * MoveSpeed * Time.fixedDeltaTime;
+        //rb.AddForce(move, ForceMode2D.Force);
 
         //Work on the jumping please
-        //Checks gamesplusjames for ground
-        if (Input.GetButtonDown("Jump"))
-        {
-            rb.velocity = transform.up * JumpMag * Time.fixedDeltaTime;
-            rb.AddForce(rb.velocity, ForceMode2D.Impulse);
-        }
+        //Checks gamesplusjames for ground)
 
-        // rb.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * MoveSpeed * Time.fixedDeltaTime);
+
+        //rb.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * MoveSpeed * Time.fixedDeltaTime);
         //rb.AddForce(transform.up*Input.GetAxisRaw("Vertical")*JumpMag*Time.fixedDeltaTime);
 
         //if (Input.GetKey(KeyCode.RightArrow))
