@@ -28,14 +28,17 @@ public class Player : MonoBehaviour
     void Update()
     {
         isGrounded = checkGrounded();
+    
 
         Move();
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
-        }
+            animator.SetTrigger("JumpTrigger");
 
+        }
+        //animator.SetBool("isGrounded", isGrounded);
         animator.SetFloat("speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
     }
 
