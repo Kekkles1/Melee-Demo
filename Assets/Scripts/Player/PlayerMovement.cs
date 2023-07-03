@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float MoveSpeed;
-    public float JumpMag;
-    public bool isGrounded;
+    [SerializeField] public float MoveSpeed;
+    [SerializeField] public float JumpMag;
+    private bool isGrounded;
     public LayerMask whatIsGround;
 
     private Rigidbody2D rb;
